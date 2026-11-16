@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  
+  <defs>
+    <linearGradient id="bgDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B111A"/>
+      <stop offset="55%" stop-color="#131E2E"/>
+      <stop offset="100%" stop-color="#090E16"/>
+    </linearGradient>
+    <linearGradient id="bgSlate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111927"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="deskGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="magentaGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EC4899" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="45%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="goldChip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#CA8A04"/>
+    </linearGradient>
+    <linearGradient id="opcDrum" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="50%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="glassShine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#94A3B8" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgSlate)"/>
+  <ellipse cx="400" cy="300" rx="280" ry="200" fill="url(#cyanGlow)"/>
+  <g transform="translate(140,110)">
+    <rect x="0" y="0" width="520" height="360" rx="16" fill="#0B111A" stroke="#22D3EE" stroke-width="2"/>
+    <rect x="30" y="30" width="460" height="230" rx="8" fill="#131E2E"/>
+    <polyline points="60,210 140,160 220,185 310,95 400,120 460,65" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="310" cy="95" r="8" fill="#FACC15"/>
+    <circle cx="460" cy="65" r="8" fill="#22D3EE"/>
+    <rect x="30" y="285" width="140" height="40" rx="6" fill="#0891B2"/>
+    <rect x="190" y="285" width="140" height="40" rx="6" fill="#1E293B" stroke="#475569"/>
+    <rect x="350" y="285" width="140" height="40" rx="6" fill="#1E293B" stroke="#475569"/>
+  </g>
+</svg>

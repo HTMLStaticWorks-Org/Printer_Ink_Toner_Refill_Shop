@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INKCRAFT | Home 2 &mdash; Ink &amp; Toner Refill Studio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <meta name="description" content="Explore Inkcraft's studio showcase for inkjet vacuum refills, laser toner remanufacturing, brand-matched cartridges, and commercial bulk print plans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Home 2: Full-Bleed Atmospheric Editorial Hero + Brand Dock */
+    .hero-editorial-h2 {
+      min-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 0 3.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-editorial-h2 .hero-overlay {
+      background: radial-gradient(circle at 50% 42%, rgba(6, 11, 20, 0.42) 0%, rgba(6, 11, 20, 0.85) 100%);
+    }
+    .hero-cmyk-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 0 auto 1.5rem auto;
+    }
+    .hero-cmyk-bar span {
+      width: 24px;
+      height: 3px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+    .hero-brand-dock {
+      position: relative;
+      z-index: 2;
+      margin-top: 4rem;
+      background: rgba(11, 17, 26, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-brand-dock-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #67E8F9;
+      white-space: nowrap;
+    }
+    .hero-brand-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+    .hero-brand-pill {
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.06);
+      color: #F1F5F9;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+    .hero-brand-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #22D3EE;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .hero-brand-link:hover { text-decoration: underline; }
+    
+    .vertical-themes { display: flex; height: 60vh; }
+    .theme-panel { flex: 1; border-right: 1px solid var(--border-color); position: relative; overflow: hidden; transition: flex var(--transition-slow); cursor: pointer; display: flex; align-items: flex-end; padding: var(--space-lg); background-size: cover; background-position: center; }
+    .theme-panel::before { content: ''; position: absolute; top:0;left:0;width:100%;height:100%; background: rgba(0,0,0,0.52); transition: background var(--transition-normal); z-index: 1; }
+    .theme-panel:hover { flex: 2; }
+    .theme-panel:hover::before { background: rgba(0,0,0,0.22); }
+    .theme-content { position: relative; z-index: 2; color: #fff; }
+    .theme-content h3 { color: #ffffff !important; font-weight: 700 !important; font-size: var(--text-xl); text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+    .theme-content p { opacity: 0; max-height: 0; transition: all var(--transition-normal); color: rgba(255,255,255,0.9); overflow: hidden; }
+    .theme-panel:hover .theme-content p { opacity: 1; max-height: 100px; margin-top: 1rem; }
+    
+    .scroll-gallery { display: flex; gap: 2rem; overflow-x: auto; padding: 2rem 0; scrollbar-width: none; }
+    .scroll-gallery::-webkit-scrollbar { display: none; }
+    .gallery-item { flex: 0 0 auto; border-radius: var(--radius-lg); overflow: hidden; }
+    .gallery-item img { width: auto; height: 400px; object-fit: cover; }
+    
+    .staircase { display: flex; flex-direction: column; gap: 2rem; padding: 4rem 0; }
+    .stair-step { display: flex; align-items: center; gap: 3rem; width: 80%; background: var(--bg-primary); padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--border-color); }
+    .stair-step:nth-child(even) { align-self: flex-end; }
+    .stair-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--accent-primary); opacity: 0.9; line-height: 1; min-width: 52px; }
+    
+    .tribute-studio { background: var(--color-charcoal); color: var(--color-ivory); padding: var(--space-xxl) 0; border-radius: var(--radius-lg); margin: 0 2rem; }
+    [data-theme="dark"] .tribute-studio { background: #131C2B; border: 1px solid var(--border-color); }
+    
+    @media (max-width: 1024px) {
+      .stair-step { width: 100%; gap: 1.5rem; flex-direction: column; align-items: flex-start; }
+      .tribute-studio { margin: 0; border-radius: 0; }
+      .hero-brand-dock { justify-content: center; text-align: center; }
+    }
+    
+    @media (max-width: 767px) {
+      .vertical-themes { flex-direction: column; height: 75vh; min-height: 500px; }
+      .theme-panel { height: auto; flex: 1; align-items: center; justify-content: center; text-align: center; padding: 1rem; }
+      .theme-panel:hover { height: auto; flex: 2; }
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="nav-brand">
+      <a href="index.html" class="nav-brand-link">
+        <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none">
+          <path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/>
+          <path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/>
+          <path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/>
+          <path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/>
+          <path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/>
+          <circle cx="32" cy="33" r="2" fill="#0F172A"/>
+        </svg>
+        <div class="nav-brand-text">
+          <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
+          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
+        </div>
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <div class="dropdown">
+        <a href="#" class="nav-link has-dropdown active" aria-haspopup="true" aria-expanded="false">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-content">
+          <a href="index.html" class="nav-link">Home 1</a>
+          <a href="home-2.html" class="nav-link active" aria-current="page">Home 2</a>
+        </div>
+      </div>
+      <a href="our-shop.html" class="nav-link">Our Shop</a>
+      <a href="refill-services.html" class="nav-link">Refill Services</a>
+      <a href="products.html" class="nav-link">Products</a>
+      <a href="bulk-plans.html" class="nav-link">Bulk Plans</a>
+      <a href="print-guides.html" class="nav-link">Print Guides</a>
+      <a href="contact-us.html" class="nav-link">Contact Us</a>
+    </div>
+
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem;">
+      <button class="icon-btn theme-toggle" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+      <a href="#" class="btn btn-primary open-modal">Request a Refill</a>
+    </div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close-btn" aria-label="Close Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="mobile-nav-list">
+      <a href="index.html" class="nav-link">Home 1</a>
+      <a href="home-2.html" class="nav-link active" aria-current="page">Home 2</a>
+      <a href="our-shop.html" class="nav-link">Our Shop</a>
+      <a href="refill-services.html" class="nav-link">Refill Services</a>
+      <a href="products.html" class="nav-link">Products</a>
+      <a href="bulk-plans.html" class="nav-link">Bulk Plans</a>
+      <a href="print-guides.html" class="nav-link">Print Guides</a>
+      <a href="contact-us.html" class="nav-link">Contact Us</a>
+  </div>
+  <div class="mobile-controls">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+  </div>
+  
+  <a href="#" class="btn btn-primary open-modal">Request a Refill</a>
+</div>
+
+<!-- SECTION 01: FULL-BLEED EDITORIAL SPOTLIGHT HERO + BRAND DOCK (HOME 2) -->
+<section class="hero-editorial-h2">
+  <div class="hero-bg reveal">
+    <img src="assets/images/hero-shop.svg" alt="Inkcraft Printer Ink and Toner Refill Shop Counter and Diagnostic Lab">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container text-center" style="margin: 0 auto; position: relative; z-index: 2;">
+    <div class="reveal" style="color: #FFFFFF; max-width: 880px; margin: 0 auto; padding: 0 1rem;">
+      <div class="hero-cmyk-bar" aria-hidden="true">
+        <span style="background:#22D3EE;"></span>
+        <span style="background:#EC4899;"></span>
+        <span style="background:#FACC15;"></span>
+        <span style="background:#94A3B8;"></span>
+      </div>
+      <span class="eyebrow" style="color: #67E8F9; font-weight: 600; margin-bottom: 1rem; display: inline-block;">COMMERCIAL &amp; STUDIO PRINT SUPPLY LAB</span>
+      <h1 style="margin-bottom: 1.25rem; color: #FFFFFF; line-height: 1.18; font-size: var(--text-hero); text-align: center;">High-Yield Cartridge Refills &amp;<br class="desktop-br">Brand-Matched Print Supplies</h1>
+      <p style="margin-bottom: 2.25rem; font-size: var(--text-md); color: rgba(255, 255, 255, 0.88); line-height: 1.65; max-width: 720px; margin-left: auto; margin-right: auto; text-align: center;">From rapid 15-minute walk-in ink refills to remanufactured laser toners and commercial bulk delivery plans engineered for every major printer brand.</p>
+      <div class="btn-group" style="max-width: 600px; margin: 0 auto;">
+        <a href="refill-services.html" class="btn btn-primary">Explore Refill Services</a>
+        <a href="bulk-plans.html" class="btn btn-secondary">View Bulk Plans</a>
+      </div>
+    </div>
+
+    <div class="hero-brand-dock reveal stagger-2">
+      <span class="hero-brand-dock-label">Supported Brands</span>
+      <div class="hero-brand-pills">
+        <span class="hero-brand-pill">HP</span>
+        <span class="hero-brand-pill">CANON</span>
+        <span class="hero-brand-pill">EPSON</span>
+        <span class="hero-brand-pill">BROTHER</span>
+        <span class="hero-brand-pill">XEROX</span>
+        <span class="hero-brand-pill">RICOH</span>
+      </div>
+      <a href="products.html" class="hero-brand-link">Browse Catalog &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container text-center" style="margin-bottom: 4rem;">
+    <h2 class="reveal" style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem;">Core Refill Disciplines for Every Printing Environment</h2>
+    <p class="reveal stagger-1" style="font-size: var(--text-md); color: var(--text-secondary); max-width: 650px; margin: 0 auto;">Explore the specialized ink, toner, diagnostic, and eco-recovery services performed daily in our workshop.</p>
+  </div>
+  <div class="vertical-themes">
+    <div class="theme-panel" style="background-image: url('assets/images/refill-inkjet.svg');">
+      <div class="theme-content">
+        <h3 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Vacuum Inkjet Refills</h3>
+        <p>Air-free chamber filling with UV-stable pigment and dye formulations matched to HP, Canon, and Epson specs.</p>
+      </div>
+    </div>
+    <div class="theme-panel" style="background-image: url('assets/images/refill-toner.svg');">
+      <div class="theme-content">
+        <h3 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Laser Toner Rebuilds</h3>
+        <p>Full hopper evacuation, fresh OPC imaging drums, wiper blades, and smart-chip resets for razor-sharp output.</p>
+      </div>
+    </div>
+    <div class="theme-panel" style="background-image: url('assets/images/cartridge-brands.svg');">
+      <div class="theme-content">
+        <h3 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Brand-Matched Stock</h3>
+        <p>Ready-to-swap remanufactured cartridges across Brother, Xerox, Ricoh, Kyocera, HP, Canon, and Epson fleets.</p>
+      </div>
+    </div>
+    <div class="theme-panel" style="background-image: url('assets/images/bulk-logistics.svg');">
+      <div class="theme-content">
+        <h3 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Office Bulk Plans</h3>
+        <p>Scheduled monthly replenishment, consolidated billing, and free empty-shell pickup for busy workplaces.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <h2 style="margin: 0;">Inkcraft Workshop &amp; Cartridge Showcase</h2>
+      <div style="display: flex; gap: 0.5rem;">
+        <button class="icon-btn" aria-label="Previous" onclick="document.querySelector('.scroll-gallery').scrollBy({left: -350, behavior: 'smooth'})" style="border: 1px solid var(--border-color); background: var(--bg-primary);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="icon-btn" aria-label="Next" onclick="document.querySelector('.scroll-gallery').scrollBy({left: 350, behavior: 'smooth'})" style="border: 1px solid var(--border-color); background: var(--bg-primary);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-gallery reveal stagger-1">
+      <div class="gallery-item"><img src="assets/images/refill-inkjet.svg" alt="Vacuum-fill CMYK inkjet cartridge calibration station"></div>
+      <div class="gallery-item"><img src="assets/images/refill-toner.svg" alt="Laser toner cartridge remanufacturing with green OPC drum"></div>
+      <div class="gallery-item"><img src="assets/images/cartridge-brands.svg" alt="OEM-compatible cartridges by HP, Canon, Epson, Brother, Xerox, and Ricoh"></div>
+      <div class="gallery-item"><img src="assets/images/print-quality.svg" alt="High-resolution CMYK color calibration and test print verification"></div>
+      <div class="gallery-item"><img src="assets/images/printer-maintenance.svg" alt="Ultrasonic printhead nozzle cleaning and roller diagnostics"></div>
+      <div class="gallery-item"><img src="assets/images/eco-recycling.svg" alt="Closed-loop empty cartridge recycling and remanufactured boxes"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="text-center reveal">Our 5-Stage Cartridge Quality Assurance Workflow</h2>
+    <div class="staircase reveal stagger-1">
+      <div class="stair-step">
+        <span class="stair-num">01</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Shell &amp; Circuit Inspection</h4>
+          <p>Checking cartridge seals, sponge condition, and electronic contact pins before refilling.</p>
+        </div>
+      </div>
+      <div class="stair-step">
+        <span class="stair-num">02</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Ultrasonic Deep Flush</h4>
+          <p>Clearing dried ink residue, waste toner buildup, and clogged micro-nozzles cleanly.</p>
+        </div>
+      </div>
+      <div class="stair-step">
+        <span class="stair-num">03</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Metered OEM-Spec Fill</h4>
+          <p>Injecting brand-calibrated pigment ink or high-density toner to full XL page capacity.</p>
+        </div>
+      </div>
+      <div class="stair-step">
+        <span class="stair-num">04</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Smart Chip &amp; Drum Reset</h4>
+          <p>Installing firmware-ready chips and fresh OPC drums so ink-level monitors read accurately.</p>
+        </div>
+      </div>
+      <div class="stair-step">
+        <span class="stair-num">05</span>
+        <div>
+          <h4 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Live Test Print Certification</h4>
+          <p>Running full CMYK color bars and crisp black text proofs before sealing for pickup.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tribute-studio reveal">
+  <div class="container">
+    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      <div>
+        <h2 style="color: var(--color-ivory); margin-bottom: 1.5rem;">Spectrophotometer Color Calibration Lab</h2>
+        <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Our in-house calibration bench tests ink viscosity, optical density, and firmware chip handshakes across desktop photo printers and high-speed corporate laser MFPs.</p>
+        <a href="products.html" class="btn btn-primary">Browse Products by Brand</a>
+      </div>
+      <div>
+        <img src="assets/images/studio-diagnostic.svg" alt="Inkcraft Color Calibration and Chip Diagnostic Lab" style="width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-secondary); text-align: center;">
+  <div class="container reveal">
+    <h2 style="font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">Smarter Printing Starts With Your Next Refill</h2>
+    <p style="font-size: var(--text-md); color: var(--text-secondary); max-width: 650px; margin: 0 auto 2.5rem auto; line-height: 1.6;">Whether you need a single home inkjet refill or a recurring bulk toner plan for fifty office printers, our technicians are ready to help.</p>
+    <div class="btn-group" style="max-width: 580px; margin: 0 auto;">
+      <a href="#" class="btn btn-primary open-modal">Request a Refill</a>
+      <a href="bulk-plans.html" class="btn btn-secondary">View Bulk Plans</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand-link" style="margin-bottom: 1rem;">
+          <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none">
+            <path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/>
+            <path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/>
+            <path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/>
+            <path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/>
+            <path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/>
+            <circle cx="32" cy="33" r="2" fill="#0F172A"/>
+          </svg>
+          <div class="nav-brand-text">
+          <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
+          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
+        </div>
+        </a>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Precision Refills. Vivid Prints.</p>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
+          Your neighborhood specialist for vacuum-calibrated inkjet refills, remanufactured laser toners, brand-matched cartridges, and commercial bulk supply plans.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="home-2.html" class="footer-link">Home 2</a>
+          <a href="our-shop.html" class="footer-link">Our Shop</a>
+          <a href="refill-services.html" class="footer-link">Refill Services</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Catalog</h4>
+        <div class="footer-links">
+          <a href="products.html" class="footer-link">Products</a>
+          <a href="bulk-plans.html" class="footer-link">Bulk Plans</a>
+          <a href="print-guides.html" class="footer-link">Print Guides</a>
+          <a href="contact-us.html" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="refill-services.html#inkjet" class="footer-link">Inkjet Refilling</a>
+          <a href="refill-services.html#toner" class="footer-link">Laser Toner Refill</a>
+          <a href="products.html" class="footer-link">Brand Compatibility</a>
+          <a href="print-guides.html" class="footer-link">Cartridge Recycling</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Inkcraft. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Warranty</a>
+        <a href="#" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+
+<div class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Request a Cartridge Refill or Quote</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Share your printer brand and cartridge number, and our technicians will confirm stock, refill pricing, and same-day availability.</p>
+    </div>
+    <form class="modal-form">
+      <div class="form-group">
+        <label class="form-label" for="modal-name">Your Name</label>
+        <input type="text" id="modal-name" class="form-control" required>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label class="form-label" for="modal-email">Email</label>
+          <input type="email" id="modal-email" class="form-control" required>
+        </div>
+        <div>
+          <label class="form-label" for="modal-phone">Phone</label>
+          <input type="tel" id="modal-phone" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="modal-service">Service or Brand Needed</label>
+        <select id="modal-service" class="form-control" required>
+          <option value="">Select a refill service...</option>
+          <option value="inkjet-refill">Inkjet Cartridge Refill (HP / Canon / Epson)</option>
+          <option value="toner-refill">Laser Toner Refill &amp; Drum Rebuild</option>
+          <option value="brand-replacement">Brand-Matched Remanufactured Cartridge</option>
+          <option value="bulk-plan">Business Bulk Plan &amp; Office Delivery</option>
+          <option value="printhead-service">Printhead Cleaning &amp; Printer Diagnostics</option>
+          <option value="recycling">Empty Cartridge Drop-Off &amp; Credit</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="modal-message">Printer Model / Cartridge Code</label>
+        <textarea id="modal-message" class="form-control" placeholder="e.g., HP LaserJet Pro M404 / CF258A or Canon PIXMA TR8620..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Request a Refill</button>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

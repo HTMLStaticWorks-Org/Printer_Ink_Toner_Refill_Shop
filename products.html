@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products by Brand | INKCRAFT Printer Ink &amp; Toner Refill Shop</title>
+  <meta name="description" content="Browse ink and laser toner cartridges by brand including HP, Canon, Epson, Brother, Xerox, Ricoh, Samsung, and Kyocera at Inkcraft.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .experience-split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 4rem; align-items: start; }
+    .experience-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .experience-item { padding: 1.5rem 2rem; border-left: 3px solid transparent; cursor: pointer; transition: all var(--transition-fast); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .experience-item.active, .experience-item:hover { border-left-color: var(--accent-primary); background: var(--bg-secondary); }
+    [data-theme="dark"] .experience-item.active, [data-theme="dark"] .experience-item:hover { border-left-color: var(--accent-primary); background: var(--bg-secondary); }
+    [dir="rtl"] .experience-item { border-left: none; border-right: 3px solid transparent; border-radius: var(--radius-md) 0 0 var(--radius-md); }
+    [dir="rtl"] .experience-item.active, [dir="rtl"] .experience-item:hover { border-right-color: var(--accent-primary); border-left-color: transparent; }
+    .experience-item h3 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: 0.5rem; color: var(--text-primary); }
+    .experience-item p { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0; }
+    .experience-image-container { position: sticky; top: 120px; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-lg); transition: opacity 0.3s ease; }
+    .experience-image-container img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .split-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3; }
+    .split-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .split-image:hover img { transform: scale(1.05); }
+    @media (max-width: 992px) {
+      .split-layout { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .split-layout > .split-image { order: -1; }
+    }
+    
+    .horizontal-card { display: flex; background: var(--bg-primary); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); margin: 0; }
+    .horizontal-card-img { flex: 1; min-height: 400px; }
+    .horizontal-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .horizontal-card-body { flex: 1; padding: 4rem; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    @media (max-width: 992px) {
+      .horizontal-card { flex-direction: column; }
+      .horizontal-card-img { min-height: 300px; }
+      .horizontal-card-body { padding: 3rem 2rem; text-align: center; align-items: center; }
+    }
+    
+    .collage-section {
+      position: relative;
+      background: var(--bg-secondary);
+      padding: var(--space-xxl) 0;
+      overflow: hidden;
+    }
+    .collage-wrapper {
+      display: grid;
+      grid-template-columns: 290px minmax(360px, 1fr) 290px;
+      gap: 2.25rem;
+      align-items: center;
+      max-width: 1240px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .collage-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    .collage-photo:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .collage-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .collage-photo-left {
+      height: 480px;
+      width: 100%;
+    }
+    .collage-right-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      height: 480px;
+      width: 100%;
+    }
+    .collage-photo-top,
+    .collage-photo-bottom {
+      height: calc((480px - 1.5rem) / 2);
+      width: 100%;
+    }
+    .collage-center {
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .collage-center h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xxl);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+    .collage-center p {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      max-width: 460px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1100px) {
+      .collage-wrapper {
+        grid-template-columns: 240px 1fr 240px;
+        gap: 1.5rem;
+      }
+      .collage-photo-left,
+      .collage-right-stack {
+        height: 440px;
+      }
+      .collage-photo-top,
+      .collage-photo-bottom {
+        height: calc((440px - 1.5rem) / 2);
+      }
+      .collage-center {
+        padding: 3rem 1.75rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .experience-split { grid-template-columns: 1fr; gap: 2rem; }
+      .experience-image-container { position: relative; top: 0; order: -1; aspect-ratio: 16/9; }
+    }
+
+    @media (max-width: 960px) {
+      .collage-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+        gap: 2rem;
+      }
+      .collage-center {
+        order: 1;
+        width: 100%;
+      }
+      .collage-photo-left {
+        order: 2;
+        height: 320px;
+      }
+      .collage-right-stack {
+        order: 3;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+      .collage-photo-top,
+      .collage-photo-bottom {
+        height: 220px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .collage-center {
+        padding: 2.5rem 1.25rem;
+      }
+      .collage-photo-left {
+        height: 250px;
+      }
+      .collage-right-stack {
+        grid-template-columns: 1fr;
+      }
+      .collage-photo-top,
+      .collage-photo-bottom {
+        height: 200px;
+      }
+    }
+    [data-theme="dark"] .collage-center {
+      background: rgba(19, 28, 43, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    }
+    [data-theme="dark"] .collage-center h2 {
+      color: var(--text-primary);
+    }
+    [data-theme="dark"] .collage-center p {
+      color: var(--text-secondary);
+    }
+    [data-theme="dark"] .collage-center .btn-primary {
+      background-color: var(--color-copper);
+      color: #ffffff;
+    }
+    [data-theme="dark"] .collage-center .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="nav-brand">
+      <a href="index.html" class="nav-brand-link">
+        <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none"><path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/><path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/><path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/><path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/><path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/><circle cx="32" cy="33" r="2" fill="#0F172A"/></svg>
+        <div class="nav-brand-text">
+          <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
+          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
+        </div>
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <div class="dropdown">
+        <a href="#" class="nav-link has-dropdown" aria-haspopup="true" aria-expanded="false">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-content">
+          <a href="index.html" class="nav-link">Home 1</a>
+          <a href="home-2.html" class="nav-link">Home 2</a>
+        </div>
+      </div>
+      <a href="our-shop.html" class="nav-link">Our Shop</a>
+      <a href="refill-services.html" class="nav-link">Refill Services</a>
+      <a href="products.html" class="nav-link active" aria-current="page">Products</a>
+      <a href="bulk-plans.html" class="nav-link">Bulk Plans</a>
+      <a href="print-guides.html" class="nav-link">Print Guides</a>
+      <a href="contact-us.html" class="nav-link">Contact Us</a>
+    </div>
+
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem;">
+      <button class="icon-btn theme-toggle" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+      <a href="#" class="btn btn-primary open-modal">Request a Refill</a>
+    </div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close-btn" aria-label="Close Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="mobile-nav-list">
+      <a href="index.html" class="nav-link">Home 1</a>
+      <a href="home-2.html" class="nav-link">Home 2</a>
+      <a href="our-shop.html" class="nav-link">Our Shop</a>
+      <a href="refill-services.html" class="nav-link">Refill Services</a>
+      <a href="products.html" class="nav-link active" aria-current="page">Products</a>
+      <a href="bulk-plans.html" class="nav-link">Bulk Plans</a>
+      <a href="print-guides.html" class="nav-link">Print Guides</a>
+      <a href="contact-us.html" class="nav-link">Contact Us</a>
+  </div>
+  <div class="mobile-controls">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+  </div>
+  
+  <a href="#" class="btn btn-primary open-modal">Request a Refill</a>
+</div>
+
+<!-- SECTION 01: HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/images/hero-products.svg" alt="Ink and Laser Toner Cartridges by Brand">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content text-center" style="margin: 0 auto;">
+    <span class="hero-eyebrow reveal" style="color: var(--accent-light); letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; display: inline-block;">PRODUCTS BY PRINTER BRAND</span>
+    <h1 class="reveal" style="margin-bottom: 1.25rem; color: #fff;">Refilled &amp; Remanufactured<br class="desktop-br">Cartridges Matched by Brand</h1>
+    <p class="reveal stagger-1" style="font-size: var(--text-base); max-width: 780px; margin: 0 auto; color: rgba(255, 255, 255, 0.9); line-height: 1.6;">Browse OEM-grade ink tanks, smart-chipped XL cartridges, and high-capacity laser toners<br class="desktop-br">calibrated specifically for every leading home and commercial printer manufacturer.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 4rem;">
+      <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">SHOP BY MANUFACTURER</span>
+      <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); color: var(--text-primary); margin-bottom: 1rem;">Compatible Ink &amp; Toner Catalog by Brand</h2>
+      <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto; font-size: var(--text-md); line-height: 1.6;">Hover or select any printer brand below to explore supported series, chip compatibility, and high-yield cartridge specifications.</p>
+    </div>
+    
+    <div class="experience-split reveal stagger-1">
+      <div class="experience-list">
+        <div class="experience-item active" data-img="assets/images/cartridge-brands.svg">
+          <h3>HP Inkjet &amp; LaserJet</h3>
+          <p>HP 67XL, 910XL, 962XL ink cartridges plus CF258A/X, W1480A, and 414A/X LaserJet toners with updated firmware chips and full page-yield parity.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/refill-inkjet.svg">
+          <h3>Canon PIXMA, MAXIFY &amp; imageCLASS</h3>
+          <p>PG-245XL, CL-246XL, PGI-280/CLI-281 photo inks, GI-21 MegaTank bottles, and Canon 054/057/067 laser toner cartridges for vivid studio color.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/print-quality.svg">
+          <h3>Epson EcoTank &amp; WorkForce</h3>
+          <p>502 &amp; 522 EcoTank pigment refill bottles plus T802XL, T812XL, and 702XL DuraBrite-matched cartridges engineered for piezo printheads.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/refill-toner.svg">
+          <h3>Brother TN &amp; LC Series</h3>
+          <p>High-yield TN-760, TN-830, TN-433, and DR-730 drum units alongside LC-3033 and LC-401XL ink tanks for crisp office document speed.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/studio-diagnostic.svg">
+          <h3>Xerox VersaLink &amp; AltaLink</h3>
+          <p>Commercial high-capacity CMYK toner tubes and imaging units calibrated for heavy graphic production and enterprise workgroup MFPs.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/bulk-logistics.svg">
+          <h3>Ricoh &amp; Savin Office MFPs</h3>
+          <p>SP and MP series polymer toner bottles and drum assemblies stocked for legal firms, medical clinics, and high-volume mailrooms.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/printer-maintenance.svg">
+          <h3>Kyocera ECOSYS &amp; TASKalfa</h3>
+          <p>TK-series ceramic-long-life toner kits engineered for ultra-low cost per page and clean fuser performance across departmental printers.</p>
+        </div>
+        <div class="experience-item" data-img="assets/images/eco-recycling.svg">
+          <h3>Samsung &amp; Lexmark Legacy</h3>
+          <p>MLT-D111S, CLT-K404S, and Lexmark MS/MX high-yield toner rebuilds keeping reliable workhorse printers running long after OEM discontinuation.</p>
+        </div>
+      </div>
+      <div class="experience-image-container">
+        <img id="experience-img" src="assets/images/cartridge-brands.svg" alt="Brand-Matched Ink and Laser Toner Cartridges">
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll('.experience-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+          document.querySelectorAll('.experience-item').forEach(el => el.classList.remove('active'));
+          this.classList.add('active');
+          document.getElementById('experience-img').src = this.getAttribute('data-img');
+        });
+      });
+    </script>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container">
+    <div class="split-layout reveal stagger-1">
+      <div class="split-text">
+        <span class="eyebrow" style="color: var(--accent-light); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">FIRMWARE &amp; CHIP READY</span>
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: #fff;">Smart-Chipped XL Cartridges &amp; Color Calibration</h2>
+        <p style="font-size: var(--text-md); margin-bottom: 2.5rem; color: rgba(255,255,255,0.8); line-height: 1.6;">Every remanufactured and refilled cartridge in our brand catalog is equipped with current-generation microchips for accurate ink-level reporting, instant printer recognition, and archival-grade fade resistance.</p>
+        <div class="mobile-center-container">
+          <a href="#" class="btn btn-primary open-modal">Check Brand Stock</a>
+        </div>
+      </div>
+      <div class="split-image">
+        <img src="assets/images/print-quality.svg" alt="CMYK Color Calibration and Smart Chip Verification">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" style="padding-bottom: 1rem;">
+  <div class="container">
+    <div class="horizontal-card reveal stagger-1">
+      <div class="horizontal-card-img">
+        <img src="assets/images/refill-toner.svg" alt="Remanufactured Laser Toner Drum and Hopper Assembly">
+      </div>
+      <div class="horizontal-card-body">
+        <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">DISCONTINUED &amp; RARE MODELS</span>
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">Hard-to-Find Cartridges &amp; Drum Unit Rebuilds</h2>
+        <p style="font-size: var(--text-md); margin-bottom: 2.5rem; color: var(--text-secondary); line-height: 1.6;">Can't find OEM stock for an older Samsung, HP, or Brother printer? Bring in your spent cartridge shell and our workshop will rebuild the drum, replace seals, and refill it to original factory yield within 24 hours.</p>
+        <div class="mobile-center-container">
+          <a href="#" class="btn btn-primary open-modal">Request Model Lookup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt collage-section">
+  <div class="container">
+    <div class="collage-wrapper">
+      <div class="collage-photo collage-photo-left reveal">
+        <img src="assets/images/refill-inkjet.svg" alt="Vacuum-fill inkjet cartridge color station">
+      </div>
+      
+      <div class="collage-center reveal stagger-1">
+        <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.75rem; display: block;">READY FOR PICKUP</span>
+        <h2 style="margin-bottom: 1.25rem;">Save Up to 60% Across Every Leading Brand</h2>
+        <p>Tell us your printer model or bring your empty cartridges to our counter for fast refills, brand swaps, or commercial multi-pack bundles.</p>
+        <div class="btn-group" style="max-width: 580px; margin: 0 auto; justify-content: center;">
+          <a href="#" class="btn btn-primary open-modal">Request a Refill</a>
+          <a href="bulk-plans.html" class="btn btn-secondary">View Bulk Plans</a>
+        </div>
+      </div>
+      
+      <div class="collage-right-stack reveal stagger-2">
+        <div class="collage-photo collage-photo-top">
+          <img src="assets/images/cartridge-brands.svg" alt="Multi-brand HP, Canon, Epson, Brother, Xerox, and Ricoh cartridges">
+        </div>
+        <div class="collage-photo collage-photo-bottom">
+          <img src="assets/images/eco-recycling.svg" alt="Eco-friendly closed-loop cartridge recycling boxes">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand-link" style="margin-bottom: 1rem;">
+          <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none"><path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/><path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/><path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/><path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/><path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/><circle cx="32" cy="33" r="2" fill="#0F172A"/></svg>
+          <div class="nav-brand-text">
+          <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
+          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
+        </div>
+        </a>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Precision Refills. Vivid Prints.</p>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
+          Your neighborhood specialist for vacuum-calibrated inkjet refills, remanufactured laser toners, brand-matched cartridges, and commercial bulk supply plans.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="home-2.html" class="footer-link">Home 2</a>
+          <a href="our-shop.html" class="footer-link">Our Shop</a>
+          <a href="refill-services.html" class="footer-link">Refill Services</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Catalog</h4>
+        <div class="footer-links">
+          <a href="products.html" class="footer-link">Products</a>
+          <a href="bulk-plans.html" class="footer-link">Bulk Plans</a>
+          <a href="print-guides.html" class="footer-link">Print Guides</a>
+          <a href="contact-us.html" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="refill-services.html#inkjet" class="footer-link">Inkjet Refilling</a>
+          <a href="refill-services.html#toner" class="footer-link">Laser Toner Refill</a>
+          <a href="products.html" class="footer-link">Brand Compatibility</a>
+          <a href="print-guides.html" class="footer-link">Cartridge Recycling</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Inkcraft. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Warranty</a>
+        <a href="#" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+
+<div class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Request a Cartridge Refill or Quote</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Share your printer brand and cartridge number, and our technicians will confirm stock, refill pricing, and same-day availability.</p>
+    </div>
+    <form class="modal-form">
+      <div class="form-group">
+        <label class="form-label" for="modal-name">Your Name</label>
+        <input type="text" id="modal-name" class="form-control" required>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label class="form-label" for="modal-email">Email</label>
+          <input type="email" id="modal-email" class="form-control" required>
+        </div>
+        <div>
+          <label class="form-label" for="modal-phone">Phone</label>
+          <input type="tel" id="modal-phone" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="modal-service">Service or Brand Needed</label>
+        <select id="modal-service" class="form-control" required>
+          <option value="">Select a refill service...</option>
+          <option value="inkjet-refill">Inkjet Cartridge Refill (HP / Canon / Epson)</option>
+          <option value="toner-refill">Laser Toner Refill &amp; Drum Rebuild</option>
+          <option value="brand-replacement">Brand-Matched Remanufactured Cartridge</option>
+          <option value="bulk-plan">Business Bulk Plan &amp; Office Delivery</option>
+          <option value="printhead-service">Printhead Cleaning &amp; Printer Diagnostics</option>
+          <option value="recycling">Empty Cartridge Drop-Off &amp; Credit</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="modal-message">Printer Model / Cartridge Code</label>
+        <textarea id="modal-message" class="form-control" placeholder="e.g., HP LaserJet Pro M404 / CF258A or Canon PIXMA TR8620..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Request a Refill</button>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+

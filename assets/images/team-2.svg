@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  
+  <defs>
+    <linearGradient id="bgDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B111A"/>
+      <stop offset="55%" stop-color="#131E2E"/>
+      <stop offset="100%" stop-color="#090E16"/>
+    </linearGradient>
+    <linearGradient id="bgSlate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111927"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="deskGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="magentaGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EC4899" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="45%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="goldChip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#CA8A04"/>
+    </linearGradient>
+    <linearGradient id="opcDrum" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="50%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="glassShine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#94A3B8" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#bgSlate)"/>
+  <rect width="600" height="800" fill="url(#gridPattern)"/>
+  <circle cx="300" cy="300" r="240" fill="#EC4899" opacity="0.16"/>
+  <!-- Shoulders / Lab Coat / Apron -->
+  <path d="M90 800 C95 570, 185 495, 300 495 C415 495, 505 570, 510 800 Z" fill="#1E293B"/>
+  <path d="M245 495 L300 595 L355 495 Z" fill="#F8FAFC" opacity="0.9"/>
+  <rect x="350" y="610" width="84" height="44" rx="6" fill="#BE185D" opacity="0.9"/>
+  <rect x="364" y="624" width="56" height="6" rx="3" fill="#FFFFFF"/>
+  <rect x="364" y="636" width="38" height="5" rx="2.5" fill="#FFFFFF" opacity="0.7"/>
+  <!-- Neck & Head -->
+  <rect x="266" y="425" width="68" height="85" rx="28" fill="#F1C27D"/>
+  <path d="M210 250 C210 155, 390 155, 390 250 L404 385 C385 395, 360 390, 355 350 L245 350 C240 390, 215 395, 196 385 Z" fill="#3B2F2F"/>
+  <ellipse cx="300" cy="310" rx="84" ry="104" fill="#F1C27D"/>
+  <!-- Subtle editorial facial features -->
+  <path d="M256 292 Q270 284 284 292" fill="none" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M316 292 Q330 284 344 292" fill="none" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="270" cy="304" r="5" fill="#0F172A"/>
+  <circle cx="330" cy="304" r="5" fill="#0F172A"/>
+  <path d="M282 355 Q300 368 318 355" fill="none" stroke="#7C2D12" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

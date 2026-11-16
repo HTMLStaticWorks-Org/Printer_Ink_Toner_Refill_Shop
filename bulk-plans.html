@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Plans | INKCRAFT Printer Ink &amp; Toner Refill Shop</title>
+  <meta name="description" content="Transparent bulk ink and laser toner refill plans for studios, schools, and commercial offices. Compare volume discounts, scheduled delivery, and fleet support.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .editorial-pricing-hero { padding: var(--space-xxl) 0; display: flex; align-items: center; justify-content: center; text-align: center; background-color: var(--bg-secondary); position: relative; min-height: 52vh; }
+    .editorial-hero-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+    
+    .support-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+    .support-card { background: var(--bg-primary); border: 1px solid var(--border-color); padding: 3rem; border-radius: var(--radius-lg); display: flex; flex-direction: column; text-align: center; transition: transform var(--transition-normal), box-shadow var(--transition-normal); position: relative; }
+    .support-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .support-card.featured { border: 2px solid var(--accent-primary); background: var(--bg-primary); box-shadow: 0 10px 30px rgba(14, 116, 144, 0.14); }
+    [data-theme="dark"] .support-card.featured { background: var(--bg-secondary); border-color: var(--accent-primary); box-shadow: 0 10px 30px rgba(34, 211, 238, 0.22); }
+    .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--color-copper); color: #ffffff; padding: 0.3rem 1.25rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; box-shadow: 0 4px 10px rgba(14, 116, 144, 0.3); }
+    .support-card h3 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; color: var(--text-primary); }
+    .support-card p { flex: 1; margin-bottom: 2rem; font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; }
+    .pricing-tag { display: block; text-align: center; font-size: 1.1rem; font-weight: 600; color: var(--accent-primary); margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+    
+    .matrix-table { width: 100%; border-collapse: collapse; margin-top: 4rem; }
+    .matrix-table th { font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); text-align: left; padding: 1.5rem; border-bottom: 2px solid var(--border-color); color: var(--text-primary); }
+    [dir="rtl"] .matrix-table th { text-align: right; }
+    .matrix-table td { padding: 1.5rem; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); }
+    .matrix-table tr:hover { background: var(--bg-secondary); }
+    .check { color: var(--accent-primary); font-weight: 700; font-size: 1.2rem; }
+    
+    .timeline-wrapper { display: flex; flex-direction: column; gap: 3rem; max-width: 800px; margin: 0 auto; position: relative; }
+    .timeline-line { position: absolute; left: 24px; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.2); }
+    [dir="rtl"] .timeline-line { left: auto; right: 24px; }
+    
+    html, body {
+      overflow-x: hidden;
+    }
+    
+    .matrix-table-container {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    @media (max-width: 1024px) {
+      .support-options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        width: 100%;
+        max-width: 580px;
+        margin: 3rem auto 0 auto;
+      }
+      .support-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 2.5rem 2rem;
+      }
+      .support-card:nth-child(3) {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        grid-column: auto !important;
+        justify-self: auto !important;
+      }
+      .matrix-table {
+        min-width: 650px;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .support-options {
+        max-width: 100%;
+        gap: 2rem;
+        margin-top: 2.5rem;
+      }
+      .support-card {
+        padding: 2rem 1.5rem;
+      }
+      .matrix-table {
+        display: table;
+        min-width: 620px;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="nav-brand">
+      <a href="index.html" class="nav-brand-link">
+        <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none"><path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/><path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/><path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/><path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/><path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/><circle cx="32" cy="33" r="2" fill="#0F172A"/></svg>
+        <div class="nav-brand-text">
+          <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
+          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
+        </div>
+      </a>
+    </div>
+    
+    <div class="nav-menu">
+      <div class="dropdown">
+        <a href="#" class="nav-link has-dropdown" aria-haspopup="true" aria-expanded="false">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <div class="dropdown-content">
+          <a href="index.html" class="nav-link">Home 1</a>
+          <a href="home-2.html" class="nav-link">Home 2</a>
+        </div>
+      </div>
+      <a href="our-shop.html" class="nav-link">Our Shop</a>
+      <a href="refill-services.html" class="nav-link">Refill Services</a>
+      <a href="products.html" class="nav-link">Products</a>
+      <a href="bulk-plans.html" class="nav-link active" aria-current="page">Bulk Plans</a>
+      <a href="print-guides.html" class="nav-link">Print Guides</a>
+      <a href="contact-us.html" class="nav-link">Contact Us</a>
+    </div>
+
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem;">
+      <button class="icon-btn theme-toggle" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+      <a href="#" class="btn btn-primary open-modal">Request a Refill</a>
+    </div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close-btn" aria-label="Close Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="mobile-nav-list">
+      <a href="index.html" class="nav-link">Home 1</a>
+      <a href="home-2.html" class="nav-link">Home 2</a>
+      <a href="our-shop.html" class="nav-link">Our Shop</a>
+      <a href="refill-services.html" class="nav-link">Refill Services</a>
+      <a href="products.html" class="nav-link">Products</a>
+      <a href="bulk-plans.html" class="nav-link active" aria-current="page">Bulk Plans</a>
+      <a href="print-guides.html" class="nav-link">Print Guides</a>
+      <a href="contact-us.html" class="nav-link">Contact Us</a>
+  </div>
+  <div class="mobile-controls">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+      </button>
+  </div>
+  
+  <a href="#" class="btn btn-primary open-modal">Request a Refill</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/images/hero-bulk-plans.svg" alt="Commercial bulk toner cartridges and multifunction office laser printers">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content text-center" style="margin: 0 auto;">
+    <span class="hero-eyebrow reveal" style="color: var(--accent-light); letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; display: inline-block;">VOLUME &amp; COMMERCIAL PLANS</span>
+    <h1 class="reveal" style="margin-bottom: 1.25rem; color: #fff;">Transparent Bulk Ink &amp; Toner<br class="desktop-br">Plans for Growing Teams</h1>
+    <p class="reveal stagger-1" style="font-size: var(--text-base); max-width: 780px; margin: 0 auto; color: rgba(255,255,255,0.9); line-height: 1.6;">Lock in predictable per-cartridge pricing, priority counter turnaround, and scheduled<br class="desktop-br">office deliveries designed for startups, schools, clinics, and high-volume print fleets.</p>
+  </div>
+</section>
+
+<section id="packages" class="section">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 3.5rem;">
+      <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">CHOOSE YOUR VOLUME TIER</span>
+      <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); color: var(--text-primary); margin-bottom: 0.75rem;">Multi-Pack &amp; Business Fleet Refill Plans</h2>
+      <p style="color: var(--text-secondary); max-width: 620px; margin: 0 auto; font-size: var(--text-md); line-height: 1.6;">Select the bulk cartridge plan that fits your monthly print volume, or request a custom fleet quote across mixed printer brands.</p>
+    </div>
+    <div class="support-options reveal stagger-1">
+      <div class="support-card">
+        <h3>Studio Starter Pack</h3>
+        <p>Ideal for home offices, freelancers, and boutique studios. Bundle 5+ inkjet refills or 2 laser toner rebuilds with priority 20-minute counter service and printhead flushes.</p>
+        <span class="pricing-tag">From $119 / bundle (Save 25%)</span>
+        <a href="#" class="btn btn-secondary open-modal" style="width: 100%;">Choose Studio Starter</a>
+      </div>
+      
+      <div class="support-card featured">
+        <span class="featured-badge" style="z-index: 5;">Most Popular</span>
+        <h3>Office Fleet Pro</h3>
+        <p>Our flagship plan for offices with 3 to 15 printers. Includes 12+ monthly refills or swap toners, free local courier pickup/delivery, spare buffer stock, and Net-30 billing.</p>
+        <span class="pricing-tag">From $349 / month (Save 45%)</span>
+        <a href="#" class="btn btn-primary open-modal" style="width: 100%;">Choose Office Fleet Pro</a>
+      </div>
+      
+      <div class="support-card">
+        <h3>Enterprise &amp; Campus SLA</h3>
+        <p>Built for schools, medical groups, and multi-floor enterprises. Dedicated account engineer, 30+ high-yield toners monthly, preventive printer maintenance, and quarterly ESG reports.</p>
+        <span class="pricing-tag">From $890 / month (Save 60%)</span>
+        <a href="#" class="btn btn-secondary open-modal" style="width: 100%;">Choose Enterprise SLA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom: 2.5rem;">
+      <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">PLAN COMPARISON</span>
+      <h2 style="margin-bottom: 0.75rem;">What Is Included in Every Bulk Refill Plan</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: var(--text-md);">A clear side-by-side breakdown of deliverables, turnaround guarantees, and fleet perks.</p>
+    </div>
+    
+    <div class="reveal stagger-1 matrix-table-container" style="overflow-x: auto; width: 100%; max-width: 100%;">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Plan Deliverable</th>
+            <th>Studio Starter</th>
+            <th>Office Fleet Pro</th>
+            <th>Enterprise SLA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>OEM-Matched Ink &amp; Full XL Toner Yield Guarantee</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Complimentary Ultrasonic Printhead &amp; Nozzle Flush</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Firmware-Current Smart Chip &amp; OPC Drum Replacement</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Scheduled Weekly Courier Pickup &amp; Desk Delivery</td>
+            <td>-</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Pre-Stocked Emergency Swap Cartridge Buffer</td>
+            <td>-</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Dedicated Print Fleet Account Technician &amp; Same-Day SLA</td>
+            <td>-</td>
+            <td>-</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>On-Site Multifunction Printer Roller &amp; Fuser Checkups</td>
+            <td>-</td>
+            <td>-</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Certified Closed-Loop Recycling &amp; Waste Diversion Report</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark timeline-section">
+  <div class="container reveal">
+    <div style="max-width: 700px; margin: 0 auto 4rem auto; text-align: center;">
+      <span class="eyebrow" style="color: var(--accent-light); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">ONBOARDING</span>
+      <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: #fff;">How Commercial Bulk Onboarding Works</h2>
+      <p style="font-size: var(--text-lg); color: rgba(255,255,255,0.85); line-height: 1.6;">Zero contracts with hidden surcharges. We audit your printer models first so every delivery arrives 100% compatible.</p>
+    </div>
+    
+    <div class="timeline-wrapper">
+      <!-- Vertical line -->
+      <div class="timeline-line"></div>
+      
+      <div style="display: flex; gap: 2rem; align-items: flex-start; position: relative; z-index: 1;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--color-black); border: 1px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent-primary); font-family: var(--font-display); font-size: 1.2rem;">1</div>
+        <div>
+          <h3 style="color: #fff; font-size: var(--text-xl); margin-bottom: 0.5rem;">Complimentary Printer Fleet Audit</h3>
+          <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Send us a quick list of your office printer models and monthly page counts. We map every cartridge code across HP, Canon, Brother, Epson, Xerox, and Ricoh units.</p>
+        </div>
+      </div>
+      
+      <div style="display: flex; gap: 2rem; align-items: flex-start; position: relative; z-index: 1;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--color-black); border: 1px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent-primary); font-family: var(--font-display); font-size: 1.2rem;">2</div>
+        <div>
+          <h3 style="color: #fff; font-size: var(--text-xl); margin-bottom: 0.5rem;">Locked Per-Unit Bulk Quote</h3>
+          <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Within 24 hours you receive an itemized bulk pricing sheet showing OEM savings, buffer stock quantities, and empty-shell trade-in credits with zero hidden fees.</p>
+        </div>
+      </div>
+      
+      <div style="display: flex; gap: 2rem; align-items: flex-start; position: relative; z-index: 1;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent-primary); border: 1px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; font-family: var(--font-display); font-size: 1.2rem;">3</div>
+        <div>
+          <h3 style="color: #fff; font-size: var(--text-xl); margin-bottom: 0.5rem;">Automated Swap &amp; Refill Cycles</h3>
+          <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">Our courier drops fresh sealed cartridges and collects your empty shells on your preferred cadence—keeping your supply closet full and your print budget predictable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container reveal">
+    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); border-top: 4px solid var(--accent-primary); padding: 5rem 2rem; text-align: center; box-shadow: var(--shadow-md); position: relative;">
+      <div style="max-width: 650px; margin: 0 auto;">
+        <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">CUSTOM FLEET QUOTES</span>
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); margin-bottom: 1rem; color: var(--text-primary);">Need a Tailored Bulk Quote for Your Workplace?</h2>
+        <p style="font-size: var(--text-md); color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">Share your printer models and estimated monthly cartridge count, and our fleet team will prepare a side-by-side savings estimate.</p>
+        <div class="btn-group" style="max-width: 580px; margin: 0 auto;">
+          <a href="#" class="btn btn-primary open-modal">Request Bulk Quote</a>
+          <a href="products.html" class="btn btn-secondary">Browse Brand Catalog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand-link" style="margin-bottom: 1rem;">
+          <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none"><path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/><path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/><path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/><path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/><path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/><circle cx="32" cy="33" r="2" fill="#0F172A"/></svg>
+          <div class="nav-brand-text">
+          <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
+          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
+        </div>
+        </a>
+        <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Precision Refills. Vivid Prints.</p>
+        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; max-width: 320px;">
+          Your neighborhood specialist for vacuum-calibrated inkjet refills, remanufactured laser toners, brand-matched cartridges, and commercial bulk supply plans.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="home-2.html" class="footer-link">Home 2</a>
+          <a href="our-shop.html" class="footer-link">Our Shop</a>
+          <a href="refill-services.html" class="footer-link">Refill Services</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Catalog</h4>
+        <div class="footer-links">
+          <a href="products.html" class="footer-link">Products</a>
+          <a href="bulk-plans.html" class="footer-link">Bulk Plans</a>
+          <a href="print-guides.html" class="footer-link">Print Guides</a>
+          <a href="contact-us.html" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="refill-services.html#inkjet" class="footer-link">Inkjet Refilling</a>
+          <a href="refill-services.html#toner" class="footer-link">Laser Toner Refill</a>
+          <a href="products.html" class="footer-link">Brand Compatibility</a>
+          <a href="print-guides.html" class="footer-link">Cartridge Recycling</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Inkcraft. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Warranty</a>
+        <a href="#" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+
+<div class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-header">
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Request a Bulk Plan or Cartridge Quote</h2>
+      <p style="color: var(--text-secondary); font-size: var(--text-sm);">Share your printer models and estimated monthly cartridge needs, and our team will prepare a custom savings proposal.</p>
+    </div>
+    <form class="modal-form">
+      <div class="form-group">
+        <label class="form-label" for="modal-name">Your Name</label>
+        <input type="text" id="modal-name" class="form-control" required>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label class="form-label" for="modal-email">Email</label>
+          <input type="email" id="modal-email" class="form-control" required>
+        </div>
+        <div>
+          <label class="form-label" for="modal-phone">Phone</label>
+          <input type="tel" id="modal-phone" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="modal-service">Preferred Bulk Tier</label>
+        <select id="modal-service" class="form-control" required>
+          <option value="">Select a plan tier...</option>
+          <option value="studio-starter">Studio Starter Pack (5+ Cartridges)</option>
+          <option value="office-fleet">Office Fleet Pro (12+ Monthly)</option>
+          <option value="enterprise-sla">Enterprise &amp; Campus SLA (30+ Monthly)</option>
+          <option value="single-refill">Walk-In Single Cartridge Refill</option>
+          <option value="fleet-audit">Complimentary Printer Fleet Audit</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="modal-message">Printer Models &amp; Monthly Volume</label>
+        <textarea id="modal-message" class="form-control" placeholder="List printer models (e.g., 4x Brother HL-L6200DW, 2x HP Color LaserJet)..." ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Request Bulk Quote</button>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
