@@ -15,7 +15,7 @@
     .services-hero-img { position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index: 0; }
     .services-hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2)); z-index: 1; }
     .services-hero-content, .hero .hero-content { position: relative; z-index: 2; color: #fff; max-width: 1060px; margin: 0 auto; }
-    .services-hero-title { font-size: clamp(2rem, 3.2vw, 3.05rem) !important; line-height: 1.25 !important; }
+    .services-hero-title { font-size: var(--text-hero); line-height: 1.2; }
     @media (min-width: 820px) {
       .hero-line-1 { white-space: nowrap; }
     }
@@ -25,7 +25,7 @@
     .service-nav a:hover { color: #fff; }
     
     .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; }
-    .service-card { background: var(--bg-primary); padding: 0 0 1.5rem 0; border: 1px solid var(--border-color); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; font-size: var(--text-md); font-weight: 500; transition: all var(--transition-normal); box-shadow: var(--shadow-sm); color: var(--text-primary); cursor: default; overflow: hidden; }
+    .service-card { background: var(--bg-primary); padding: 0 0 1.5rem 0; border: 1px solid var(--border-color); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; font-size: var(--text-base); font-weight: 500; transition: all var(--transition-normal); box-shadow: var(--shadow-sm); color: var(--text-primary); cursor: default; overflow: hidden; }
     .service-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 0 !important; margin-bottom: 1.5rem; display: block; }
     .service-card span { padding: 0 1.5rem; }
     .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--color-copper); }
@@ -42,13 +42,13 @@
     
     @media (max-width: 767px) {
       .services-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .service-card { padding: 0 0 1.5rem 0; font-size: 0.85rem; }
+      .service-card { padding: 0 0 1.5rem 0; font-size: var(--text-base); }
       .service-card span { padding: 0 1rem; }
       
       .service-detail-row { flex-direction: column !important; gap: 2rem; margin-bottom: 4rem; text-align: center; }
       .service-detail-img, .service-detail-text { width: 100%; flex: none; }
       .service-detail-text h3 { font-size: var(--text-xl); }
-      .service-detail-text p { font-size: 1.1rem; line-height: 1.7; margin: 0 auto; }
+      .service-detail-text p { font-size: var(--text-base); line-height: 1.65; margin: 0 auto; }
     }
   </style>
 </head>
@@ -61,7 +61,6 @@
         <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none"><path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/><path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/><path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/><path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/><path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/><circle cx="32" cy="33" r="2" fill="#0F172A"/></svg>
         <div class="nav-brand-text">
           <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
-          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
         </div>
       </a>
     </div>
@@ -134,7 +133,7 @@
   <div class="container hero-content text-center" style="margin: 0 auto; max-width: 1060px;">
     <span class="hero-eyebrow reveal" style="color: var(--accent-light); letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; display: inline-block;">OUR TECHNICAL SERVICES</span>
     <h1 class="reveal services-hero-title" style="margin-bottom: 1.25rem; color: #fff;"><span class="hero-line-1">Precision Printer Ink &amp; Laser Toner</span><br class="desktop-br">Refill, Rebuild &amp; Diagnostic Services</h1>
-    <p class="reveal stagger-1" style="font-size: var(--text-base); max-width: 780px; margin: 0 auto; color: rgba(255,255,255,0.9); line-height: 1.6;">Vacuum-calibrated ink refills, full toner cartridge remanufacturing, and printhead recovery<br class="desktop-br">performed by certified technicians for crisp, dependable everyday printing.</p>
+    <p class="reveal stagger-1" style="font-size: var(--text-md); max-width: 780px; margin: 0 auto; color: rgba(255,255,255,0.9); line-height: 1.65;">Vacuum-calibrated ink refills, full toner cartridge remanufacturing, and printhead recovery<br class="desktop-br">performed by certified technicians for crisp, dependable everyday printing.</p>
   </div>
 </section>
 
@@ -240,7 +239,6 @@
           <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none"><path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/><path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/><path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/><path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/><path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/><circle cx="32" cy="33" r="2" fill="#0F172A"/></svg>
           <div class="nav-brand-text">
           <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
-          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
         </div>
         </a>
         <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Precision Refills. Vivid Prints.</p>

@@ -22,16 +22,6 @@
     .help-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; color: var(--accent-primary); transition: background var(--transition-fast); }
     .help-block:hover .help-icon { background: var(--bg-primary); }
     
-    .faq-section { background-color: var(--bg-primary); padding: var(--space-xxl) 0; }
-    .faq-container { max-width: 800px; margin: 0 auto; text-align: left; }
-    .faq-item { border-bottom: 1px solid var(--border-color); }
-    .faq-question { padding: 1.5rem 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: var(--font-display); font-size: var(--text-lg); color: var(--text-primary); transition: color var(--transition-fast); }
-    .faq-question:hover { color: var(--color-copper); }
-    .faq-icon { width: 24px; height: 24px; transition: transform 0.3s; stroke: var(--accent-primary); }
-    .faq-item.active .faq-icon { transform: rotate(180deg); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease; font-size: var(--text-md); color: var(--text-secondary); }
-    .faq-item.active .faq-answer { max-height: 500px; padding-bottom: 1.5rem; }
-    
     @media (max-width: 1024px) {
       .ways-to-help { grid-template-columns: repeat(2, 1fr); }
     }
@@ -80,7 +70,6 @@
         <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none"><path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/><path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/><path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/><path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/><path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/><circle cx="32" cy="33" r="2" fill="#0F172A"/></svg>
         <div class="nav-brand-text">
           <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
-          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
         </div>
       </a>
     </div>
@@ -153,7 +142,7 @@
   <div class="container hero-content text-center" style="margin: 0 auto;">
     <span class="hero-eyebrow reveal" style="color: var(--accent-light); letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; display: inline-block;">CONTACT OUR REFILL COUNTER</span>
     <h1 class="reveal" style="margin-bottom: 1.25rem; color: #fff;">Check Cartridge Stock or<br class="desktop-br">Book a Same-Day Refill</h1>
-    <p class="reveal stagger-1" style="font-size: var(--text-base); max-width: 780px; margin: 0 auto; color: rgba(255,255,255,0.9); line-height: 1.6;">Drop by our service counter for a 15-minute refill or submit your printer details below<br class="desktop-br">for fast bulk quotes, model compatibility checks, and office courier pickups.</p>
+    <p class="reveal stagger-1" style="font-size: var(--text-md); max-width: 780px; margin: 0 auto; color: rgba(255,255,255,0.9); line-height: 1.65;">Drop by our service counter for a 15-minute refill or submit your printer details below<br class="desktop-br">for fast bulk quotes, model compatibility checks, and office courier pickups.</p>
   </div>
 </section>
 
@@ -185,7 +174,7 @@
     <div class="contact-form-card reveal stagger-2">
       <div style="text-align: center; margin-bottom: 2rem;">
         <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">ONLINE ENQUIRY FORM</span>
-        <h2 id="enquiry-heading" style="font-family: var(--font-display); font-size: var(--text-xl); color: var(--text-primary); text-align: center; margin-bottom: 0.5rem;">Request Refill Pricing or Bulk Quote</h2>
+        <h2 id="enquiry-heading" style="font-family: var(--font-display); font-size: var(--text-xxl); color: var(--text-primary); text-align: center; margin-bottom: 0.5rem;">Request Refill Pricing or Bulk Quote</h2>
         <p style="font-size: var(--text-sm); color: var(--text-secondary); max-width: 550px; margin: 0 auto; line-height: 1.6; text-align: center;">Share your printer brand, cartridge code, or office bulk volume below and our technicians will respond promptly with stock confirmation and pricing.</p>
       </div>
       <form>
@@ -276,54 +265,6 @@
   </div>
 </section>
 
-<!-- FAQ SECTION -->
-<section class="faq-section">
-  <div class="container reveal">
-    <div class="text-center" style="margin-bottom: 3rem;">
-      <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">COMMON QUESTIONS</span>
-      <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); color: var(--text-primary); margin-bottom: 0.75rem;">Ink &amp; Toner Refill Frequently Asked Questions</h2>
-      <p style="color: var(--text-secondary); max-width: 620px; margin: 0 auto; font-size: var(--text-md);">Quick answers about cartridge chips, printer warranties, turnaround time, and bulk office accounts.</p>
-    </div>
-    <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question">
-          Will refilled or remanufactured cartridges void my printer warranty?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </div>
-        <div class="faq-answer">No. Under consumer protection regulations (including the Magnuson-Moss Warranty Act), printer manufacturers cannot void your hardware warranty for using refilled or remanufactured cartridges—and Inkcraft covers every cartridge with a 100% print guarantee.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          How long does a walk-in inkjet or laser toner refill take?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </div>
-        <div class="faq-answer">Standard inkjet cartridges are vacuum-cleaned, refilled, and test-printed in 15 to 20 minutes while you wait. Laser toner rebuilds with OPC drum and smart-chip replacement are typically ready within 1 to 2 hours or available as an instant counter swap.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          Will my printer recognize ink levels on refilled cartridges?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </div>
-        <div class="faq-answer">Yes, for supported HP, Canon, Brother, and Xerox cartridges we install updated or reset smart chips so your printer detects the cartridge cleanly and tracks ink or toner capacity accurately.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          How many times can the same cartridge shell be refilled?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </div>
-        <div class="faq-answer">Most inkjet cartridges can be refilled 3 to 5 times as long as the internal sponge and copper circuit remain intact. Laser toner cartridges can be remanufactured repeatedly whenever we swap worn OPC drums and seals.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          Do you offer free pickup and delivery for business bulk plans?
-          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </div>
-        <div class="faq-answer">Yes. All Office Fleet Pro and Enterprise SLA bulk plan accounts receive scheduled weekly courier pickups for empty cartridges and doorstep delivery of fresh sealed refills at no extra delivery charge.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container reveal">
     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-xl); border-top: 4px solid var(--accent-primary); padding: 5rem 2rem; text-align: center; box-shadow: var(--shadow-md); position: relative;">
@@ -339,22 +280,6 @@
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
-    });
-  });
-</script>
-
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
@@ -364,7 +289,6 @@
           <svg class="site-logo" width="32" height="32" viewBox="0 0 64 64" fill="none"><path d="M22 6 H42 L56 20 V44 L42 58 H22 L8 44 V20 Z" stroke="#0E7490" stroke-width="2.5" fill="rgba(14,116,144,0.08)"/><path d="M32 12 C21 24, 16 32, 16 40.5 C16 49.2, 23.2 54, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#0891B2"/><path d="M32 12 C38 22, 42 30, 42 39 C42 46, 37.5 52, 32 54 C40.8 54, 48 49.2, 48 40.5 C48 32, 43 24, 32 12 Z" fill="#BE185D" opacity="0.9"/><path d="M32 34 L41 44 C38.5 50, 35.5 53.2, 32 54 C28.5 53.2, 25.5 50, 23 44 Z" fill="#EAB308"/><path d="M32 23 L37.5 34.5 L34 39.5 H30 L26.5 34.5 Z" fill="#FFFFFF"/><circle cx="32" cy="33" r="2" fill="#0F172A"/></svg>
           <div class="nav-brand-text">
           <span class="nav-logo-text" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; color: var(--text-primary); white-space: nowrap;">INKCRAFT</span>
-          <span class="nav-descriptor" style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.35; margin-top: 2px; display: block;"><span style="display: block; white-space: nowrap;">Printer Ink &amp;</span><span style="display: block; white-space: nowrap;">Toner Refill Shop</span></span>
         </div>
         </a>
         <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1rem;">Precision Refills. Vivid Prints.</p>
