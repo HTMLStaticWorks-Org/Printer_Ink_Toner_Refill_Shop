@@ -796,22 +796,39 @@ button {
   width: 100% !important;
 }
 
-/* Hero Section Base (Inner Pages: About to Contact) */
+/* Hero Section Base (Inner Pages: Our Shop to Contact Us) */
 .hero {
   position: relative;
-  min-height: 52vh;
+  min-height: 46vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6.5rem 1.5rem 4rem 1.5rem;
+  padding: 7.5rem 1.5rem 4rem 1.5rem;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(14, 116, 144, 0.12) 0%, transparent 48%),
+    radial-gradient(circle at 82% 72%, rgba(56, 189, 248, 0.12) 0%, transparent 46%),
+    linear-gradient(180deg, #E7F2F9 0%, #F4F9FC 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .hero {
+  background:
+    radial-gradient(circle at 18% 28%, rgba(34, 211, 238, 0.14) 0%, transparent 48%),
+    radial-gradient(circle at 82% 72%, rgba(190, 24, 93, 0.10) 0%, transparent 46%),
+    linear-gradient(180deg, #0D1624 0%, #131E30 100%);
 }
 
 @media (min-width: 992px) {
   .hero {
-    min-height: 54vh;
-    padding: 7rem 2rem 4.5rem 2rem;
+    min-height: 48vh;
+    padding: 8rem 2rem 4.5rem 2rem;
   }
+}
+
+.hero .hero-bg,
+.hero .hero-overlay {
+  display: none;
 }
 
 .hero-bg {
@@ -847,13 +864,12 @@ button {
 .hero-content {
   position: relative;
   z-index: 2;
-  color: #fff;
-  /* Force white for dark overlays */
+  color: var(--text-primary);
   max-width: 860px;
 }
 
 .hero-content h1 {
-  color: #fff;
+  color: var(--text-primary) !important;
   font-family: var(--font-display);
   font-size: var(--text-hero);
   line-height: 1.2;
@@ -861,9 +877,18 @@ button {
 }
 
 .hero-content p {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-secondary) !important;
   font-size: var(--text-md);
   line-height: 1.65;
+}
+
+[data-theme="dark"] .hero-content,
+[data-theme="dark"] .hero-content h1 {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .hero-content p {
+  color: #CBD5E1 !important;
 }
 
 .desktop-br {
@@ -886,8 +911,14 @@ button {
   color: var(--accent-primary);
 }
 
-.hero .eyebrow {
-  color: var(--color-copper-muted);
+.hero .eyebrow,
+.hero .hero-eyebrow {
+  color: var(--accent-primary) !important;
+}
+
+[data-theme="dark"] .hero .eyebrow,
+[data-theme="dark"] .hero .hero-eyebrow {
+  color: var(--accent-light) !important;
 }
 
 /* Standard Sections */

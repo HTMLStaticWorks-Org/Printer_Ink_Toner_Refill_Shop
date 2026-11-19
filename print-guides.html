@@ -13,12 +13,6 @@
   <style>
     .resources-hero { min-height: 52vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 5rem; background: var(--bg-secondary); }
     
-    .filter-nav { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-    .filter-btn { padding: 0.6rem 1.6rem; border: 1px solid var(--border-color); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 500; cursor: pointer; background: var(--bg-primary); color: var(--text-primary); transition: all var(--transition-fast); }
-    .filter-btn:hover, .filter-btn.active { background: var(--color-copper); color: #ffffff; border-color: var(--color-copper); box-shadow: 0 4px 14px rgba(14, 116, 144, 0.3); }
-    [data-theme="dark"] .filter-btn { background: var(--bg-secondary); border-color: var(--border-color); color: var(--text-secondary); }
-    [data-theme="dark"] .filter-btn:hover, [data-theme="dark"] .filter-btn.active { background: var(--color-copper); color: #ffffff; border-color: var(--color-copper); box-shadow: 0 4px 14px rgba(34, 211, 238, 0.35); }
-    
     .resource-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; align-items: stretch; }
     .resource-card { display: flex; flex-direction: column; height: 100%; background: var(--bg-primary); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); transition: transform 0.3s; }
     .resource-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
@@ -208,9 +202,7 @@
 </div>
 
 <section class="hero">
-  <div class="hero-bg">
-    <img src="assets/images/hero-guides.svg" alt="CMYK print calibration sheet and ink cartridge guide">
-  </div>
+ 
   <div class="hero-overlay"></div>
   <div class="container hero-content text-center" style="margin: 0 auto;">
     <span class="hero-eyebrow reveal" style="color: var(--accent-light); letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; display: inline-block;">TECHNICAL GUIDES &amp; CARE</span>
@@ -222,12 +214,10 @@
 <section class="section">
   <div class="container">
     
-    <div class="filter-nav reveal stagger-1">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Inkjet Refills</button>
-      <button class="filter-btn">Laser Toner</button>
-      <button class="filter-btn">Maintenance</button>
-      <button class="filter-btn">Eco Recycling</button>
+    <div class="text-center reveal" style="margin-bottom: 3.5rem;">
+      <span class="eyebrow" style="color: var(--accent-primary); letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">REFILL &amp; MAINTENANCE LIBRARY</span>
+      <h2 style="font-family: var(--font-display); font-size: var(--text-xxl); color: var(--text-primary); margin-bottom: 0.75rem;">Essential Ink, Toner &amp; Cartridge Care Guides</h2>
+      <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto; font-size: var(--text-md); line-height: 1.6;">Practical walkthroughs prepared by our technicians to help you choose the right ink chemistry, preserve empty cartridge shells, and recycle responsibly.</p>
     </div>
     
     <div class="resource-grid" id="resource-grid-container" style="opacity: 1; transform: none;">
@@ -240,28 +230,10 @@
         
         const resourceData = {
           'Inkjet Refills': [
-            { title: 'Pigment vs. Dye Ink Guide', desc: 'Understand when crisp smudge-proof pigment ink or glossy photo dye ink is right for your printer.', img: 'refill-inkjet.svg' },
-            { title: 'Preparing Empty Ink Shells', desc: 'Why sealing copper printheads in a damp sleeve before drop-off doubles cartridge refill lifespan.', img: 'cartridge-brands.svg' },
-            { title: 'EcoTank & MegaTank Bottles', desc: 'Safe bottle pouring, avoiding cross-contamination, and resetting tank counters cleanly.', img: 'print-quality.svg' },
-            { title: 'Maximizing XL Ink Yields', desc: 'Print driver draft modes and paper settings that extend high-yield cartridges by up to 30%.', img: 'studio-diagnostic.svg' }
-          ],
-          'Laser Toner': [
-            { title: 'OPC Drum vs. Toner Hopper', desc: 'Learn when you only need a toner refill versus when the green imaging drum needs replacement.', img: 'refill-toner.svg' },
-            { title: 'Smart Chip Recognition Tips', desc: 'How to clear firmware prompt messages and verify accurate remaining-toner percentage bars.', img: 'studio-diagnostic.svg' },
-            { title: 'Fixing Gray Background Haze', desc: 'Diagnosing worn doctor blades and waste hopper overflow before streaky pages appear.', img: 'printer-maintenance.svg' },
-            { title: 'Color Laser Alignment', desc: 'Running density calibration routines on Brother, HP, and Canon color laser multifunction printers.', img: 'print-quality.svg' }
-          ],
-          'Maintenance': [
-            { title: 'Unclogging Dried Printheads', desc: 'Safe ultrasonic and warm-solvent methods to recover missing cyan or black lines without wasting ink.', img: 'printer-maintenance.svg' },
-            { title: 'Storing Spare Cartridges', desc: 'Optimal temperature, humidity, and foil sealing practices to keep backup ink fresh for 18 months.', img: 'bulk-logistics.svg' },
-            { title: 'Cleaning Paper Feed Rollers', desc: 'Preventing double-feeds and paper jams with lint-free alcohol wipes across office trays.', img: 'hero-bulk-plans.svg' },
-            { title: 'Firmware Update Checklist', desc: 'What to check before updating printer firmware so third-party and refilled chips stay recognized.', img: 'cartridge-brands.svg' }
-          ],
-          'Eco Recycling': [
-            { title: 'Empty Shell Buyback Credits', desc: 'Which OEM virgin HP and Canon shells earn instant counter credit toward your next refill.', img: 'eco-recycling.svg' },
-            { title: 'Carbon Footprint Savings', desc: 'See how refilling one laser toner cartridge saves 1.8 kg of plastic and aluminum manufacturing.', img: 'bulk-logistics.svg' },
-            { title: 'Office Collection Bins', desc: 'Request a free countertop recycling box for your school, clinic, or corporate mailroom.', img: 'eco-recycling.svg' },
-            { title: 'Zero-Landfill Remanufacturing', desc: 'Inside our closed-loop disassembly process for worn fusers, gears, and imaging drums.', img: 'refill-toner.svg' }
+            { title: 'Pigment vs. Dye Ink Guide', desc: 'Understand when crisp smudge-proof pigment ink or glossy photo dye ink is right for your printer.', img: 'https://images.openai.com/static-rsc-4/PW-gRblILLOhVxwctKz-xQuJ2l6ZW2PAdOqFoc3fioYgSXBuqyQ9STxlG2qQhVW3MIeRQ3YwP1lmmcWW4juvRvokPnBNQUfjhlSxgKuzalVbF_DIgVy1jB31YPuaNwlbCMnyWlNIHC_FvIgnUeSWi-9ULaFLeQGVs9Hs-ZHHi-SQ3bJPWw-EMbeBfBYFQDRK?purpose=fullsize' },
+            { title: 'Preparing Empty Ink Shells', desc: 'Why sealing copper printheads in a damp sleeve before drop-off doubles cartridge refill lifespan.', img: 'https://images.openai.com/static-rsc-4/ENrvXFlnYelTcOlUkOFOgFQHqCvOO0tNvjn67mMsXY_IdBr0IiSsxzF8PvlnkWkzeICcZn81bTNsow66E-DXc5sVZGN9yo_hD0Vq3BYSVxyL8PuiCvbPmV0LXM0tkl400-qZAZ_aJl-TSBt-W8UXnN0VoeR3IujMn9waTMAleyqZnLfBNmUnv4hxw0ebcwze?purpose=fullsize' },
+            { title: 'Office Collection Bins', desc: 'Request a free countertop recycling box for your school, clinic, or corporate mailroom.', img: 'https://images.openai.com/static-rsc-4/w-EHafJql8UAqhOCB8sPzLoWiuSLW4m6IutcKLanA5Tu_VAaGhFbkSvC3TuQWznaV-zjm8A86wXBuAUy3uwN6PYdiTbBem-0-GWgCm6XR3zV6sRS3eGXJ5Dc7R3O2esMuPW-NDLv3tKfVAXXT8OtCi2XGDKI4QTyo7t5S0If0SgmKBy_god7UbqwHbrCWvxD?purpose=fullsize' },
+            { title: 'Zero-Landfill Remanufacturing', desc: 'Inside our closed-loop disassembly process for worn fusers, gears, and imaging drums.', img: 'https://images.openai.com/static-rsc-4/dj9JjaHmH5hldcRkPqb29WIhij5IyDuHg2UP1PmFyOMYMRb3WZF5nQglGU07K-1WrsGIvnOUVHWKeWAXZzs193XYZ47zrp611sZv4Pl5GzZH6YC-sEKBhcDO1QWxiR2BrC5Ncjwtt8btYfnb9SnZfHeuyN7Nv5l7oCkZ5hFjgn6g5NVXbL1cMw5MXtR-2Ynr?purpose=fullsize' }
           ]
         };
         
@@ -269,8 +241,11 @@
           resourceData[cat].forEach(item => {
             const card = document.createElement('div');
             card.className = 'resource-card';
+            const imgSrc = /^(https?:\/\/|assets\/|\/|data:)/i.test(item.img)
+              ? item.img
+              : `assets/images/${item.img}`;
             card.innerHTML = `
-              <img src="assets/images/${item.img}" class="resource-img" alt="${item.title}">
+              <img src="${imgSrc}" class="resource-img" alt="${item.title}">
               <div class="resource-text">
                 <span class="resource-category">${cat}</span>
                 <h3>${item.title}</h3>
@@ -278,31 +253,6 @@
               </div>
             `;
             container.appendChild(card);
-          });
-        });
-
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const allCards = document.querySelectorAll('.resource-card');
-        
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const filter = btn.textContent.trim().toLowerCase();
-            
-            allCards.forEach(card => {
-              if (filter === 'all') {
-                card.style.display = 'flex';
-              } else {
-                const category = card.querySelector('.resource-category').textContent.trim().toLowerCase();
-                if (category === filter) {
-                  card.style.display = 'flex';
-                } else {
-                  card.style.display = 'none';
-                }
-              }
-            });
           });
         });
       });
@@ -335,7 +285,7 @@
         <a href="#" class="btn btn-outline open-modal">Ask a Print Technician</a>
       </div>
       <div class="ti-img">
-        <img src="assets/images/print-quality.svg" alt="CMYK calibration sheet and cartridge reference chart">
+        <img src="https://images.openai.com/static-rsc-4/vV4QgekEAdGvSAjyYHUQFNSK6TPMqsjTuONbsKFK60ETTQKSq93-3wZdAEmwyGMDJzphfbeY4TYpJoLaC39IxEze013EccNJp5a1E8GHjO2u6IG9r6_9BNnE4aTumUmsK6hMnWa8kJoyq7bL0zoCO24Xy2XdWJ3-DGTJCkoz9dgAdYl1jjFKg2Qg3EJGdv0W?purpose=fullsize" alt="CMYK calibration sheet and cartridge reference chart">
       </div>
     </div>
   </div>
@@ -344,7 +294,7 @@
 <section class="section section-alt">
   <div class="container">
     <div class="featured-guide reveal" style="position: relative; overflow: hidden; background: none;">
-      <img src="assets/images/hero-refill-lab.svg" alt="Inkcraft Printer Fleet Savings Guide" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+      <img src="https://images.openai.com/static-rsc-4/DC6qS7TTGTYJ_KMwwusxgd7vgI2IRQ5WzS0c_DXUEqE1tUm8bpLo2T2pib5H5RPoj8pUSax6ufvXW-WP5FJHnkTkG-yrGbWe--98wwgL-on9yGZTKAjo7hxPHuWh9_RvgjpqnW_GYCH3rwiwEpaUW7iTL95QQRZatFoZutCUE1gvCmUiyguWJ2026D1fxpy6?purpose=fullsize" alt="Inkcraft Printer Fleet Savings Guide" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
       <div class="featured-overlay" style="position: absolute; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 1;"></div>
       <div class="featured-content" style="position: relative; z-index: 2;">
         <span class="resource-category" style="color: var(--accent-light); margin-bottom: 1rem;">FEATURED TECHNICAL GUIDE</span>
