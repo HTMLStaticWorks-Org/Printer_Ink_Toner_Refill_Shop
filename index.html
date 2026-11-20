@@ -585,14 +585,6 @@
       .pillars-lab-specs { justify-content: center; }
     }
 
-    .assistance-actions {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
     @media (max-width: 1100px) {
       .hero-split-grid {
         grid-template-columns: 1fr;
@@ -610,6 +602,7 @@
       .hero-studio-spec:first-child { border-right: none; border-bottom: 1px solid var(--border-color); }
       .process-journey-tracker { display: none; }
       .process-cards-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .process-card-img-wrap { height: 300px; }
       .process-assistance-bar { flex-direction: column; text-align: center; align-items: center; padding: 1.5rem; }
       .assistance-text { flex-direction: column; text-align: center; }
       .assistance-actions { width: 100%; justify-content: center; }
@@ -617,6 +610,9 @@
       .elegant-split { grid-template-columns: 1fr; gap: 3rem; }
       .elegant-img-main { width: 95%; }
       .elegant-img-second { width: 45%; }
+    }
+    @media (max-width: 480px) {
+      .process-card-img-wrap { height: 240px; }
     }
   </style>
 </head>
@@ -913,7 +909,7 @@
       <!-- Stage 02 -->
       <div class="process-card">
         <div class="process-card-img-wrap">
-          <img src="assets/images/bulk-logistics.svg" alt="Commercial bulk toner plans and scheduled office delivery boxes" class="process-card-img" loading="lazy">
+          <img src="https://blog-new.tonerconnect.net/wp-content/uploads/2026/01/Image-3.webp" alt="Commercial bulk toner plans and scheduled office delivery boxes" class="process-card-img" loading="lazy">
           <span class="process-card-badge">Stage 02</span>
         </div>
         <div class="process-card-body">
